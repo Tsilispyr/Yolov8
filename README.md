@@ -39,7 +39,7 @@ The model is downloaded automatically by ultralytics on first run. Use `yolov8n.
 
 ## Controls
 
-`ESC` — quit.
+`ESC` - quit.
 
 ## Zone
 
