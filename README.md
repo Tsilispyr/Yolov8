@@ -13,6 +13,10 @@ Real-time object detection and tracking via webcam using YOLOv8 and Supervision.
 ```bash
 pip install ultralytics supervision opencv-python
 ```
+```bash
+pip install opencv-python ultralytics supervision numpy
+```
+
 
 Tested with: `ultralytics 8.3`, `supervision 0.26`, `opencv 4.12`.
 
