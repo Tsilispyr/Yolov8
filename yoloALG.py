@@ -63,6 +63,8 @@ def main():
         cv2.imshow("YOLOv8", frame)
         if cv2.waitKey(1) == 27:
             break
+        if cv2.getWindowProperty("YOLOv8", cv2.WND_PROP_VISIBLE) < 1:
+            break
 
     cap.release()
     cv2.destroyAllWindows()

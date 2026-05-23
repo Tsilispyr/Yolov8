@@ -13,10 +13,6 @@ Real-time object detection and tracking via webcam using YOLOv8 and Supervision.
 ```bash
 pip install ultralytics supervision opencv-python
 ```
-```bash
-pip install opencv-python ultralytics supervision numpy
-```
-
 
 Tested with: `ultralytics 8.3`, `supervision 0.26`, `opencv 4.12`.
 
@@ -33,18 +29,41 @@ python yoloALG2.py
 python yoloALG2.py --webcam-resolution 1920 1080 --conf 0.5 --model yolov8n.pt
 ```
 
-| Argument              | Default       | Description                                  |
-| --------------------- | ------------- | -------------------------------------------- |
-| `--webcam-resolution` | `1280 720`    | Capture resolution                           |
-| `--conf`              | `0.45`        | Detection confidence threshold               |
-| `--model`             | `yolov8l.pt`  | YOLO model file (auto-downloaded if missing) |
+| Argument | Default | Description |
+| --- | --- | --- |
+| `--webcam-resolution` | `1280 720` | Capture resolution |
+| `--conf` | `0.45` | Detection confidence threshold |
+| `--model` | `yolov8l.pt` | YOLO model file (auto-downloaded if missing) |
+| `--zone` | `full` | Preset: `full` `left` `right` `top` `bottom` `custom` |
 
 The model is downloaded automatically by ultralytics on first run. Use `yolov8n.pt` for speed, `yolov8x.pt` for accuracy.
 
 ## Controls
 
-`ESC` - quit.
+| Key | Action |
+| --- | ------ |
+| `ESC` | Quit |
+| `Z` | Open interactive zone editor on the current frame |
+| `X` (window close) | Quit |
 
 ## Zone
 
-The red polygon covers the left half of the frame by default. Edit `ZONE_POLYGON` at the top of either script to change it (values are normalised 0–1).
+The red polygon marks a region of interest — objects inside it are counted in real time.
+
+**Presets** (via `--zone`):
+
+```bash
+python yoloALG2.py --zone left     # left half
+python yoloALG2.py --zone right    # right half
+python yoloALG2.py --zone top      # top half
+python yoloALG2.py --zone bottom   # bottom half
+python yoloALG2.py --zone full     # whole frame (default)
+python yoloALG2.py --zone custom   # draw on startup
+```
+
+**Interactive editor** — press `Z` at any time while running:
+
+- Left-click to add points
+- Right-click to undo the last point
+- Enter to confirm (minimum 3 points)
+- Esc to cancel and keep the current zone
