@@ -4,9 +4,9 @@ Real-time object detection and tracking via webcam using YOLOv8 and Supervision.
 
 ## Scripts
 
-**`yoloALG.py`** — basic detection with polygon zone monitoring.
+**`yoloALG.py`** - basic detection with polygon zone monitoring.
 
-**`yoloALG2.py`** — full version with ByteTrack object tracking, movement traces, FPS counter, and object count overlay.
+**`yoloALG2.py`** - full version with ByteTrack object tracking, movement traces, FPS counter, and object count overlay.
 
 ## Requirements
 
